@@ -14,10 +14,10 @@ import Message from './Message.jsx';
  class App extends Component {
 
     renderMessages() {
+    console.log(this.props, "<<<Props")
+    return this.props.messages.map((message) => (
 
-    return this.props.messages.map((task) => (
-
-      <Message key={task._id} task={task} />
+      <Message key={message._id} task={message} />
 
     ));
 
@@ -40,8 +40,7 @@ import Message from './Message.jsx';
   }
 
   render() {
-    if(!this.props.isReady)
-      return <div className="loading">Loading...</div>
+    
     return (
 
       <div className="container">
@@ -70,7 +69,7 @@ import Message from './Message.jsx';
 
         <ul>
 
-          {this.renderMessages()}
+          {this.props.isReady && this.props.messages.length!=0?this.renderMessages():""}
 
         </ul>
 

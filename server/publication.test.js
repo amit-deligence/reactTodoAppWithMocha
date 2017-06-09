@@ -13,8 +13,8 @@ describe('Publication of messages collection', function () {
     });
   });
 
-  describe('Message in describe', function () {
-    it('Get All messages from collection', function (done) {
+  describe('Messages from collection', function () {
+    it('Get all', function (done) {
       const collector = new PublicationCollector();
       collector.collect('Messages', (collection) => {
         assert.equal(collection.Messages.length, 1);

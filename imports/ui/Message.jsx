@@ -7,7 +7,7 @@ import { Messages } from '../api/messages.js';
 export default class Message extends Component {
 
 	deleteMsg() {
-	    Meteor.call("removeMessage",this.props.task._id,(err)=>{
+	    Meteor.call("removeMessage",this.props.message._id,(err)=>{
         if(err)
           Bert.alert(" Error: "+err.reason, "danger", "growl-top-left");
         else
@@ -18,13 +18,13 @@ export default class Message extends Component {
 
     return (
 
-      	<li>
-      		<span>{this.props.task.message}</span>
-          {this.props.task.owner == Meteor.userId() ?
+      	<li className="list-item">
+      		<span>{this.props.message.message}</span>
+          {this.props.message.owner == Meteor.userId() ?
           	<button className="delete" onClick={this.deleteMsg.bind(this)}>&times;</button>
       	   :""
          }
-         <span className="msg-date">{this.props.task.createdAt.toString().substring(4,21)}</span>
+         <span className="msg-date">{this.props.message.createdAt.toString().substring(4,21)}</span>
         </li>
 
     );
@@ -41,7 +41,7 @@ Message.propTypes = {
 
   // We can use propTypes to indicate it is required
 
-  task: PropTypes.object.isRequired,
+  message: PropTypes.object.isRequired,
 
 };
 

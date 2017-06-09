@@ -25,3 +25,6 @@ themeteorchef:bert
 practicalmeteor:mocha
 johanbrook:publication-collector
 practicalmeteor:chai
+dburles:factory
+practicalmeteor:sinon
+xolvio:cleaner

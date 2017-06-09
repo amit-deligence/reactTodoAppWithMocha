@@ -2,7 +2,7 @@ import { Messages } from './messages.js';
 import { Random } from 'meteor/random';
 
 if (Meteor.isServer) {
-  describe('Message Collection:', function () {
+  describe('Message Collection', function () {
     it('Insertion successful', function () {
       let userId = Random.id();
       const messageId = Messages.insert({
@@ -13,7 +13,6 @@ if (Meteor.isServer) {
       const checkMessage = Messages.find({ _id: messageId });
       const messageCollection = checkMessage._getCollectionName();
       const count = checkMessage.count();
-
       assert.equal(messageCollection, 'Messages');
       assert.equal(count, 1);
     });
